@@ -1,0 +1,105 @@
+{
+    "barriers": [
+      {
+        "id": 1,
+        "name": "Barrier 1",
+        "status": "Good",
+        "latitude": 48.2082,
+        "longitude": 16.3738,
+        "lastInspectionDate": "2024-10-01",
+        "nextInspectionDate": "2025-04-01",
+        "notes": "No issues"
+      },
+      {
+        "id": 2,
+        "name": "Barrier 2",
+        "status": "Needs Maintenance",
+        "latitude": 48.3069,
+        "longitude": 14.2858,
+        "lastInspectionDate": "2024-06-15",
+        "nextInspectionDate": "2024-12-15",
+        "notes": "Minor rust on metal"
+      },
+      {
+        "id": 3,
+        "name": "Barrier 3",
+        "status": "Damaged",
+        "latitude": 47.0707,
+        "longitude": 15.4395,
+        "lastInspectionDate": "2024-09-20",
+        "nextInspectionDate": "2024-11-01",
+        "notes": "Damage on left side"
+      },
+      {
+        "id": 4,
+        "name": "Barrier 4",
+        "status": "Good",
+        "latitude": 47.5162,
+        "longitude": 14.5501,
+        "lastInspectionDate": "2024-08-10",
+        "nextInspectionDate": "2025-02-10",
+        "notes": "No issues"
+      },
+      {
+        "id": 5,
+        "name": "Barrier 5",
+        "status": "Needs Maintenance",
+        "latitude": 48.1351,
+        "longitude": 11.5820,
+        "lastInspectionDate": "2024-07-05",
+        "nextInspectionDate": "2024-12-05",
+        "notes": "Some parts are missing"
+      },
+      {
+        "id": 6,
+        "name": "Barrier 6",
+        "status": "Damaged",
+        "latitude": 47.8095,
+        "longitude": 13.0550,
+        "lastInspectionDate": "2024-10-10",
+        "nextInspectionDate": "2024-11-10",
+        "notes": "Severe damage on the right side"
+      },
+      {
+        "id": 7,
+        "name": "Barrier 7",
+        "status": "Good",
+        "latitude": 48.2082,
+        "longitude": 16.0000,
+        "lastInspectionDate": "2024-09-01",
+        "nextInspectionDate": "2025-03-01",
+        "notes": "No issues"
+      },
+      {
+        "id": 8,
+        "name": "Barrier 8",
+        "status": "Needs Maintenance",
+        "latitude": 48.5000,
+        "longitude": 16.3000,
+        "lastInspectionDate": "2024-05-20",
+        "nextInspectionDate": "2024-11-20",
+        "notes": "Loose bolts detected"
+      },
+      {
+        "id": 9,
+        "name": "Barrier 9",
+        "status": "Damaged",
+        "latitude": 48.2000,
+        "longitude": 14.6000,
+        "lastInspectionDate": "2024-08-25",
+        "nextInspectionDate": "2024-10-25",
+        "notes": "Significant structural damage"
+      },
+      {
+        "id": 10,
+        "name": "Barrier 10",
+        "status": "Good",
+        "latitude": 47.5000,
+        "longitude": 15.1000,
+        "lastInspectionDate": "2024-04-01",
+        "nextInspectionDate": "2024-10-01",
+        "notes": "No issues"
+      }
+    ]
+  }
+  

@@ -34,21 +34,21 @@ export class DashboardComponent implements OnInit {
 
   loadGoogleMaps(): void {
     if (!(window as any).google) {
-        console.log('Loading Google Maps API...');
-        const script = this.renderer.createElement('script');
-        script.src = this.googleMapsApiUrl;
-        script.async = true;
-        script.defer = true;
-        script.onload = () => {
-            console.log('Google Maps API loaded.');
-            this.initializeMap();
-        };
-        script.onerror = () => console.error('Failed to load Google Maps API.');
-        this.renderer.appendChild(document.body, script);
-    } else {
-        console.log('Google Maps API already loaded.');
-        console.log('Google Maps API Version:', google.maps.version);
+      console.log('Loading Google Maps API...');
+      const script = this.renderer.createElement('script');
+      script.src = this.googleMapsApiUrl;
+      script.async = true;
+      script.defer = true;
+      script.onload = () => {
+        console.log('Google Maps API loaded.');
         this.initializeMap();
+      };
+      script.onerror = () => console.error('Failed to load Google Maps API.');
+      this.renderer.appendChild(document.body, script);
+    } else {
+      console.log('Google Maps API already loaded.');
+      console.log('Google Maps API Version:', google.maps.version);
+      this.initializeMap();
     }
   }
 
@@ -56,7 +56,16 @@ export class DashboardComponent implements OnInit {
     const mapContainer = document.getElementById('map') as HTMLElement;
     const mapOptions = {
       center: { lat: 48.2082, lng: 16.3738 },
-      zoom: 10
+      zoom: 10,
+      zoomControl: true,
+      streetViewControl: true,
+      mapTypeControl: true,
+      rotateControl: true,
+      fullscreenControl: true,
+      mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+        mapTypeIds: ['roadmap', 'satellite'],
+      },
     };
 
     this.map = new google.maps.Map(mapContainer, mapOptions);
@@ -65,13 +74,13 @@ export class DashboardComponent implements OnInit {
 
   setMarkers(): void {
     if (this.map && this.barriers.length > 0) {
-        this.barriers.forEach(barrier => {
-            const marker = new google.maps.marker.AdvancedMarkerElement({
-                position: { lat: barrier.latitude, lng: barrier.longitude },
-                map: this.map,
-                title: barrier.name
-            });
+      this.barriers.forEach(barrier => {
+        new google.maps.Marker({
+          position: { lat: barrier.latitude, lng: barrier.longitude },
+          map: this.map,
+          title: barrier.name
         });
+      });
     }
   }
 }

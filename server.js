@@ -32,16 +32,10 @@ app.use(
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "https://maps.googleapis.com"],
-        connectSrc: [
-          "'self'",
-          "https://json-barrier-server.onrender.com",
-          "http://localhost:5000",
-          "https://maps.googleapis.com",
-          "https://events.launchdarkly.com"
-        ],
-        styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
-        imgSrc: ["'self'", "https://maps.gstatic.com"],
-        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        connectSrc: ["'self'", "https://json-barrier-server.onrender.com", "http://localhost:5000"],
+        imgSrc: ["'self'", "https://maps.gstatic.com", "https://maps.googleapis.com"],
+        styleSrc: ["'self'", "https://fonts.googleapis.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"]
       },
     },
   })

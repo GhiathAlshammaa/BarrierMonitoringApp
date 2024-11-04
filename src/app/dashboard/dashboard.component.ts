@@ -36,20 +36,30 @@ export class DashboardComponent implements OnInit {
 
   loadGoogleMaps(): void {
     if (!(window as any).google) {
-      console.log('Loading Google Maps API...');
-      const script = this.renderer.createElement('script');
-      script.src = this.googleMapsApiUrl;
-      script.async = true; // Adding async
-      script.defer = true; // Adding defer
-      script.onload = () => this.initializeMap();
-      script.onerror = () => console.error('Failed to load Google Maps API.');
-      this.renderer.appendChild(document.body, script);
+        console.log('Loading Google Maps API...');
+        const script = this.renderer.createElement('script');
+        script.src = this.googleMapsApiUrl;
+        script.async = true;
+        script.defer = true;
+        script.onload = () => {
+            console.log('Google Maps API loaded.');
+            this.initializeMap();
+        };
+        script.onerror = () => console.error('Failed to load Google Maps API.');
+        this.renderer.appendChild(document.body, script);
     } else {
-      this.initializeMap();
+        console.log('Google Maps API already loaded.');
+        this.initializeMap();
     }
-  }
+}
+
   
 
+/*************  ✨ Codeium Command ⭐  *************/
+  /**
+   * Initializes the Google Map and sets the markers from the loaded barrier data.
+   */
+/******  2f3ee05b-3b79-4b1e-ad80-c5ad092b63f1  *******/
   initializeMap(): void {
     const mapContainer = document.getElementById('map') as HTMLElement;
     const mapOptions = {
@@ -63,14 +73,13 @@ export class DashboardComponent implements OnInit {
 
   setMarkers(): void {
     if (this.map && this.barriers.length > 0) {
-      this.barriers.forEach(barrier => {
-        new google.maps.Marker({
-          position: { lat: barrier.latitude, lng: barrier.longitude },
-          map: this.map,
-          title: barrier.name
+        this.barriers.forEach(barrier => {
+            new google.maps.marker.AdvancedMarkerElement({
+                position: { lat: barrier.latitude, lng: barrier.longitude },
+                map: this.map,
+                title: barrier.name
+            });
         });
-      });
     }
-  }
-  
+}
 }

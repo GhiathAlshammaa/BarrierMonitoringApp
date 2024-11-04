@@ -31,17 +31,17 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://maps.googleapis.com", "'unsafe-inline'"],
+        scriptSrc: ["'self'", "maps.googleapis.com", "'unsafe-inline'"],
         connectSrc: [
           "'self'",
-          "https://json-barrier-server.onrender.com",
-          "http://localhost:5000",
-          "https://maps.googleapis.com",
-          "https://events.launchdarkly.com"
+          "json-barrier-server.onrender.com",
+          "localhost:5000",
+          "maps.googleapis.com",
+          "events.launchdarkly.com"
         ],
-        styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
-        imgSrc: ["'self'", "https://maps.gstatic.com"],
-        fontSrc: ["'self'", "https://fonts.gstatic.com"],
+        styleSrc: ["'self'", "fonts.googleapis.com", "'unsafe-inline'"],
+        imgSrc: ["'self'", "maps.gstatic.com"],
+        fontSrc: ["'self'", "fonts.gstatic.com"],
       },
     },
   })

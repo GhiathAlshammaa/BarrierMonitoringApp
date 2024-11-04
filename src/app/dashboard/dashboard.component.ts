@@ -10,10 +10,8 @@ declare const google: any;  // Treat google as a globally defined variable
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  map: any;  // Use any instead of google.maps.Map
-  marker: any;  // Use any instead of google.maps.Marker
-  infoWindow: any;  // Use any instead of google.maps.InfoWindow
-  readonly googleMapsApiUrl = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&callback=initMap`;
+  map: any;
+  readonly googleMapsApiUrl = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&libraries=marker&callback=initMap`;
   barriers: any[] = [];
   localApiUrl = 'http://localhost:5000/api/barriers';
   liveApiUrl = 'https://json-barrier-server.onrender.com/api/barriers';
@@ -30,7 +28,6 @@ export class DashboardComponent implements OnInit {
     const apiUrl = this.useLiveData ? this.liveApiUrl : this.localApiUrl;
     this.http.get<any[]>(apiUrl).subscribe(data => {
       this.barriers = data;
-      this.loadGoogleMaps();
       this.setMarkers();
     });
   }
@@ -50,11 +47,11 @@ export class DashboardComponent implements OnInit {
         this.renderer.appendChild(document.body, script);
     } else {
         console.log('Google Maps API already loaded.');
+        console.log('Google Maps API Version:', google.maps.version);
         this.initializeMap();
     }
-}
+  }
 
-  
   initializeMap(): void {
     const mapContainer = document.getElementById('map') as HTMLElement;
     const mapOptions = {
@@ -69,12 +66,12 @@ export class DashboardComponent implements OnInit {
   setMarkers(): void {
     if (this.map && this.barriers.length > 0) {
         this.barriers.forEach(barrier => {
-            new google.maps.Marker({
+            const marker = new google.maps.marker.AdvancedMarkerElement({
                 position: { lat: barrier.latitude, lng: barrier.longitude },
                 map: this.map,
                 title: barrier.name
             });
         });
     }
-}
+  }
 }

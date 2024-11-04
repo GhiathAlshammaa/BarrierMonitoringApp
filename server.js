@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 // CORS configuration
 app.use(
   cors({
-    origin: ['http://localhost:5000'],
+    origin: [''],
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: [
       'Accept',
@@ -31,17 +31,17 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "maps.googleapis.com", "'unsafe-inline'"],
+        scriptSrc: ["'self'", "https://maps.googleapis.com", "'unsafe-inline'"],
         connectSrc: [
           "'self'",
-          "json-barrier-server.onrender.com",
-          "localhost:5000",
-          "maps.googleapis.com",
-          "events.launchdarkly.com"
+          "https://json-barrier-server.onrender.com",
+          "http://localhost:5000",
+          "https://maps.googleapis.com",
+          "https://events.launchdarkly.com"
         ],
-        styleSrc: ["'self'", "fonts.googleapis.com", "'unsafe-inline'"],
-        imgSrc: ["'self'", "maps.gstatic.com"],
-        fontSrc: ["'self'", "fonts.gstatic.com"],
+        styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
+        imgSrc: ["'self'", "https://maps.gstatic.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
       },
     },
   })

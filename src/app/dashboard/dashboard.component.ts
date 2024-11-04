@@ -10,7 +10,7 @@ export class DashboardComponent implements OnInit {
   barriers: any[] = [];
 
   // Define URLs
-  localApiUrl = 'http://localhost:5001/api/barriers'; // Local URL
+  localApiUrl = 'http://localhost:5000/api/barriers'; // Local URL
   liveApiUrl = 'https://json-barrier-server.onrender.com/api/barriers'; // Live URL (Render)
 
   // Toggle to use live or local data

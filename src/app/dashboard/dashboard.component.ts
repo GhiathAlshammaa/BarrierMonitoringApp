@@ -39,6 +39,8 @@ export class DashboardComponent implements OnInit {
       console.log('Loading Google Maps API...');
       const script = this.renderer.createElement('script');
       script.src = this.googleMapsApiUrl;
+      script.async = true; // Adding async
+      script.defer = true; // Adding defer
       script.onload = () => this.initializeMap();
       script.onerror = () => console.error('Failed to load Google Maps API.');
       this.renderer.appendChild(document.body, script);
@@ -46,6 +48,7 @@ export class DashboardComponent implements OnInit {
       this.initializeMap();
     }
   }
+  
 
   initializeMap(): void {
     const mapContainer = document.getElementById('map') as HTMLElement;
@@ -61,7 +64,7 @@ export class DashboardComponent implements OnInit {
   setMarkers(): void {
     if (this.map && this.barriers.length > 0) {
       this.barriers.forEach(barrier => {
-        new google.maps.marker.AdvancedMarkerElement({
+        new google.maps.Marker({
           position: { lat: barrier.latitude, lng: barrier.longitude },
           map: this.map,
           title: barrier.name
@@ -69,4 +72,5 @@ export class DashboardComponent implements OnInit {
       });
     }
   }
+  
 }

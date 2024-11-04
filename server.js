@@ -1,15 +1,15 @@
 const express = require('express');
 const path = require('path');
 const jsonServer = require('json-server');
-const helmet = require('helmet'); // Security middleware
+const helmet = require('helmet');
 const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Configure CORS to allow specific origins, methods, and headers
+// CORS configuration
 app.use(
   cors({
-    origin: ['http://localhost:5000'], // Adjust origin as needed for production
+    origin: ['http://localhost:5000'],
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: [
       'Accept',
@@ -25,23 +25,23 @@ app.use(
   })
 );
 
-// Configure Helmet with custom CSP
+// Helmet with CSP
 app.use(
   helmet({
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        scriptSrc: ["'self'", "https://maps.googleapis.com"], // Allow Google Maps scripts
+        scriptSrc: ["'self'", "https://maps.googleapis.com"],
         connectSrc: [
           "'self'",
           "https://json-barrier-server.onrender.com",
           "http://localhost:5000",
           "https://maps.googleapis.com",
-          "https://events.launchdarkly.com" // Allow LaunchDarkly API
+          "https://events.launchdarkly.com"
         ],
-        styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"], // Allow Google Fonts styles and inline styles
-        imgSrc: ["'self'", "https://maps.gstatic.com"], // Allow Google Maps images
-        fontSrc: ["'self'", "https://fonts.gstatic.com"], // Allow Google Fonts
+        styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
+        imgSrc: ["'self'", "https://maps.gstatic.com"],
+        fontSrc: ["'self'", "https://fonts.gstatic.com"],
       },
     },
   })

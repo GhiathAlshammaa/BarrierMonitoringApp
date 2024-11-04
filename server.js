@@ -12,10 +12,10 @@ app.use(
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "https://maps.googleapis.com"], // Allow Google Maps scripts
-        connectSrc: ["'self'", "https://json-barrier-server.onrender.com", "http://localhost:5000"], // Allow external API and localhost
-        styleSrc: ["'self'", "https://fonts.googleapis.com"], // Add if needed for Google Fonts
+        connectSrc: ["'self'", "https://json-barrier-server.onrender.com", "http://localhost:5000", "https://maps.googleapis.com"], // Allow external API and localhost
+        styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"], // Allow Google Fonts styles and inline styles
         imgSrc: ["'self'", "https://maps.gstatic.com"], // Allow Google Maps images
-        fontSrc: ["'self'", "https://fonts.gstatic.com"], // Add if needed for Google Fonts
+        fontSrc: ["'self'", "https://fonts.gstatic.com"], // Allow Google Fonts
       },
     },
   })
@@ -41,7 +41,6 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
-// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

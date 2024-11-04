@@ -61,7 +61,7 @@ export class DashboardComponent implements OnInit {
   setMarkers(): void {
     if (this.map && this.barriers.length > 0) {
       this.barriers.forEach(barrier => {
-        new google.maps.Marker({
+        new google.maps.marker.AdvancedMarkerElement({
           position: { lat: barrier.latitude, lng: barrier.longitude },
           map: this.map,
           title: barrier.name

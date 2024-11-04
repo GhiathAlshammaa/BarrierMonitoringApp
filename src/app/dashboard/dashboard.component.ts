@@ -31,6 +31,7 @@ export class DashboardComponent implements OnInit {
     this.http.get<any[]>(apiUrl).subscribe(data => {
       this.barriers = data;
       this.loadGoogleMaps();
+      this.setMarkers();
     });
   }
 
@@ -68,7 +69,7 @@ export class DashboardComponent implements OnInit {
   setMarkers(): void {
     if (this.map && this.barriers.length > 0) {
         this.barriers.forEach(barrier => {
-            new google.maps.marker.AdvancedMarkerElement({
+            new google.maps.Marker({
                 position: { lat: barrier.latitude, lng: barrier.longitude },
                 map: this.map,
                 title: barrier.name

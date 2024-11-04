@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 5000;
 // CORS configuration
 app.use(
   cors({
-    origin: [''],
+    origin: ['http://localhost:5000'],
     methods: ['GET', 'POST', 'OPTIONS'],
     allowedHeaders: [
       'Accept',

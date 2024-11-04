@@ -5,8 +5,17 @@ const helmet = require('helmet'); // Security middleware
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Security middleware
-app.use(helmet());
+// Configure Helmet with custom CSP
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        connectSrc: ["'self'", "https://json-barrier-server.onrender.com"], // Allow external API
+      },
+    },
+  })
+);
 
 const apiRouter = jsonServer.router('barriers.json');
 const middlewares = jsonServer.defaults();
@@ -16,7 +25,7 @@ app.use('/api', apiRouter);
 
 app.use(express.static(path.join(__dirname, 'dist/BarrierMonitoringApp')));
 
-app.get('/*', function(req, res) {
+app.get('/*', function (req, res) {
   res.sendFile(path.join(__dirname, 'dist/BarrierMonitoringApp/index.html'));
 });
 

@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   map: any;  // Use any instead of google.maps.Map
   marker: any;  // Use any instead of google.maps.Marker
   infoWindow: any;  // Use any instead of google.maps.InfoWindow
-  readonly googleMapsApiUrl = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&libraries=marker`;
+  readonly googleMapsApiUrl = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&callback=initMap`;
   barriers: any[] = [];
   localApiUrl = 'http://localhost:5000/api/barriers';
   liveApiUrl = 'https://json-barrier-server.onrender.com/api/barriers';
@@ -54,12 +54,6 @@ export class DashboardComponent implements OnInit {
 }
 
   
-
-/*************  ✨ Codeium Command ⭐  *************/
-  /**
-   * Initializes the Google Map and sets the markers from the loaded barrier data.
-   */
-/******  2f3ee05b-3b79-4b1e-ad80-c5ad092b63f1  *******/
   initializeMap(): void {
     const mapContainer = document.getElementById('map') as HTMLElement;
     const mapOptions = {

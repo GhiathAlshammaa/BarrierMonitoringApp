@@ -11,18 +11,24 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
+        scriptSrc: ["'self'", "https://maps.googleapis.com"], // Allow Google Maps scripts
         connectSrc: ["'self'", "https://json-barrier-server.onrender.com", "http://localhost:5000"], // Allow external API and localhost
+        styleSrc: ["'self'", "https://fonts.googleapis.com"], // Add if needed for Google Fonts
+        imgSrc: ["'self'", "https://maps.gstatic.com"], // Allow Google Maps images
+        fontSrc: ["'self'", "https://fonts.gstatic.com"], // Add if needed for Google Fonts
       },
     },
   })
 );
 
+// Set up JSON server for API simulation
 const apiRouter = jsonServer.router('barriers.json');
 const middlewares = jsonServer.defaults();
 
 app.use('/api', middlewares);
 app.use('/api', apiRouter);
 
+// Serve the Angular app from the 'dist' directory
 app.use(express.static(path.join(__dirname, 'dist/BarrierMonitoringApp')));
 
 app.get('/*', function (req, res) {
@@ -35,6 +41,7 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
+// Start the server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

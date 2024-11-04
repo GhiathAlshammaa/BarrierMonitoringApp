@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
   map: any;  // Use any instead of google.maps.Map
   marker: any;  // Use any instead of google.maps.Marker
   infoWindow: any;  // Use any instead of google.maps.InfoWindow
-  readonly googleMapsApiUrl = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}`;
+  readonly googleMapsApiUrl = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&libraries=marker`;
   barriers: any[] = [];
   localApiUrl = 'http://localhost:5000/api/barriers';
   liveApiUrl = 'https://json-barrier-server.onrender.com/api/barriers';

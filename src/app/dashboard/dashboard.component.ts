@@ -14,7 +14,7 @@ export class DashboardComponent implements OnInit {
   liveApiUrl = 'https://json-barrier-server.onrender.com/api/barriers'; // Live URL (Render)
 
   // Toggle to use live or local data
-  useLiveData = true; // Set to true to use live data
+  useLiveData = false; // Set to true to use live data
 
   constructor(private http: HttpClient) { }
 

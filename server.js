@@ -11,7 +11,7 @@ app.use(
     contentSecurityPolicy: {
       directives: {
         defaultSrc: ["'self'"],
-        connectSrc: ["'self'", "https://json-barrier-server.onrender.com"], // Allow external API
+        connectSrc: ["'self'", "https://json-barrier-server.onrender.com", "http://localhost:5000"], // Allow external API and localhost
       },
     },
   })

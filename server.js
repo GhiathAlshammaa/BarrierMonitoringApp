@@ -32,6 +32,7 @@ app.use(
       directives: {
         defaultSrc: ["'self'"],
         scriptSrc: ["'self'", "https://maps.googleapis.com", "'unsafe-inline'"],
+        scriptSrcAttr: ["'unsafe-inline'"],  
         connectSrc: [
           "'self'",
           "https://json-barrier-server.onrender.com",
@@ -40,7 +41,7 @@ app.use(
           "https://events.launchdarkly.com"
         ],
         styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
-        imgSrc: ["'self'", "https://maps.gstatic.com"],
+        imgSrc: ["'self'", "https://maps.gstatic.com", "https://maps.googleapis.com"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
       },
     },

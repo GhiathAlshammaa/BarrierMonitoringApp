@@ -1,0 +1,13 @@
+<div *ngIf="barrier" class="barrier-details">
+    <h3>{{ barrier.name }}</h3>
+    <p><strong>Status:</strong>
+      <span *ngIf="barrier.status === 'Good'">✅ </span>
+      <span *ngIf="barrier.status === 'Needs Maintenance'">⚠️</span>
+      <span *ngIf="barrier.status === 'Damaged'">❌</span>
+    </p>
+    <p><strong>Location:</strong> {{ barrier.latitude }}, {{ barrier.longitude }}</p>
+    <p><strong>Last Inspection Date:</strong> {{ barrier.lastInspectionDate | date }}</p>
+    <p><strong>Next Inspection Date:</strong> {{ barrier.nextInspectionDate | date }}</p>
+    <p><strong>Notes:</strong> {{ barrier.notes }}</p>
+  </div>
+  

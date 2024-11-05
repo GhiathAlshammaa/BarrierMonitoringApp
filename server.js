@@ -41,7 +41,7 @@ app.use(
           "https://events.launchdarkly.com"
         ],
         styleSrc: ["'self'", "https://fonts.googleapis.com", "'unsafe-inline'"],
-        imgSrc: ["'self'", "https://maps.gstatic.com", "https://maps.googleapis.com"],
+        imgSrc: ["'self'", "https://maps.gstatic.com", "https://maps.googleapis.com", "https://maps.google.com", "data:"],
         fontSrc: ["'self'", "https://fonts.gstatic.com"],
       },
     },

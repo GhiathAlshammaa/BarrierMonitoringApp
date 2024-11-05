@@ -10,6 +10,7 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { SettingsComponent } from './settings/settings.component';
 import { routes } from './app.routes';
 import { environment } from '../environment/environment.prod';
+import { BarrierDetailsComponent } from './barrier-details/barrier-details.component';
 
 
 // Function to asynchronously load Google Maps API
@@ -28,7 +29,8 @@ export function initializeApp(): () => Promise<void> {
     AppComponent,
     DashboardComponent,
     NotificationsComponent,
-    SettingsComponent
+    SettingsComponent,
+    BarrierDetailsComponent
   ],
   imports: [
     CommonModule,

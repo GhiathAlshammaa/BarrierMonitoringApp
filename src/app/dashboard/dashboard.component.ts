@@ -110,17 +110,25 @@ export class DashboardComponent implements OnInit {
     }
   }
   
+  
+  
   // Helper method to get icon URL based on barrier status
   getIconUrl(status: BarrierStatus): string {
-    switch (status) {
-      case BarrierStatus.Good:
-        return 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%2300C853" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M9 16.2l-3.5-3.5 1.4-1.4L9 13.4l7.6-7.6 1.4 1.4z"/></svg>';
-      case BarrierStatus.NeedsMaintenance:
-        return 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23FFC107" viewBox="0 0 24 24"><path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/></svg>';
-      case BarrierStatus.Damaged:
-        return 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="%23D50000" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M18.3 5.71l-1.41-1.41L12 9.59 7.11 4.71 5.7 6.12 10.59 11 5.7 15.88l1.41 1.41L12 12.41l4.88 4.88 1.41-1.41L13.41 11l4.89-4.88z"/></svg>';
-      default:
-        return 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'; // Default Google Maps blue icon
-    }
+      let iconUrl = '';
+      switch (status) {
+          case BarrierStatus.Good:
+              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'; // Green icon for "Good"
+              break;
+          case BarrierStatus.NeedsMaintenance:
+              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png'; // Yellow icon for "Needs Maintenance"
+              break;
+          case BarrierStatus.Damaged:
+              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/red-dot.png'; // Red icon for "Damaged"
+              break;
+          default:
+              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'; // Default blue icon
+      }
+      console.log(`Status: ${status}, Icon URL: ${iconUrl}`);
+      return iconUrl;
   }
 }

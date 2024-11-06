@@ -6,6 +6,8 @@
     "start": "node server.js",
     "begin": "ng serve",
     "build": "ng build",
+    "build:prod": "ng build --configuration production",
+    "build:dev": "ng build --configuration development --base-href '/'",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "clean": "ng cache clean"

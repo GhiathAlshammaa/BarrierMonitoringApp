@@ -1,13 +1,30 @@
 <div *ngIf="barrier" class="barrier-details">
     <h3>{{ barrier.name }}</h3>
-    <p><strong>Status:</strong>
-      <span *ngIf="barrier.status === 'Good'">✅ </span>
-      <span *ngIf="barrier.status === 'Needs Maintenance'">⚠️</span>
-      <span *ngIf="barrier.status === 'Damaged'">❌</span>
-    </p>
-    <p><strong>Location:</strong> {{ barrier.latitude }}, {{ barrier.longitude }}</p>
-    <p><strong>Last Inspection Date:</strong> {{ barrier.lastInspectionDate | date }}</p>
-    <p><strong>Next Inspection Date:</strong> {{ barrier.nextInspectionDate | date }}</p>
-    <p><strong>Notes:</strong> {{ barrier.notes }}</p>
+    <table class="details-table">
+      <tr>
+        <td>Status:</td>
+        <td class="status-icon">
+          <span *ngIf="barrier.status === BarrierStatus.Good" class="status-good">✅ Good</span>
+          <span *ngIf="barrier.status === BarrierStatus.NeedsMaintenance" class="status-maintenance">⚠️ Needs Maintenance</span>
+          <span *ngIf="barrier.status === BarrierStatus.Damaged" class="status-damaged">❌ Damaged</span>
+        </td>
+      </tr>
+      <tr>
+        <td>Location:</td>
+        <td>X: {{ barrier.latitude }}, Y: {{ barrier.longitude }}</td>
+      </tr>
+      <tr>
+        <td>Last Inspection Date:</td>
+        <td>{{ barrier.lastInspectionDate | date: 'mediumDate' }}</td>
+      </tr>
+      <tr>
+        <td>Next Inspection Date:</td>
+        <td>{{ barrier.nextInspectionDate | date: 'mediumDate' }}</td>
+      </tr>
+      <tr>
+        <td>Notes:</td>
+        <td>{{ barrier.notes }}</td>
+      </tr>
+    </table>
   </div>
   

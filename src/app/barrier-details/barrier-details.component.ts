@@ -1,5 +1,6 @@
-// barrier-details.component.ts
+
 import { Component, Input } from '@angular/core';
+import { BarrierStatus } from './barrier-status';
 
 @Component({
   selector: 'app-barrier-details',
@@ -8,6 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class BarrierDetailsComponent {
   @Input() barrier: any; 
-
-  constructor() { }
+  public BarrierStatus = BarrierStatus;
 }

@@ -1,3 +1,19 @@
-<div id="map" style="height: 500px; width: 100%;"></div>
+<div id="map" style="height: 448px; width: 100%;"></div>
 
+<!-- Instruction message -->
+<div class="notification" *ngIf="!selectedBarrier">
+  <p class="message-title">Click on a marker to see barrier details</p>
+  <div class="status-icons">
+    <div class="status-icon-container status-good">
+      <span class="status-icon">✅</span> Good
+    </div>
+    <div class="status-icon-container status-maintenance">
+      <span class="status-icon">⚠️</span> Needs Maintenance
+    </div>
+    <div class="status-icon-container status-damaged">
+      <span class="status-icon">❌</span> Damaged
+    </div>
+  </div>
+</div>
+  
 <app-barrier-details *ngIf="selectedBarrier" [barrier]="selectedBarrier"></app-barrier-details>

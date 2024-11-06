@@ -1,6 +1,7 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environment/environment.prod';
+import { BarrierStatus } from '../barrier-details/barrier-status';
 
 declare const google: any;  // Treat google as a globally defined variable
 
@@ -11,7 +12,16 @@ declare const google: any;  // Treat google as a globally defined variable
 })
 export class DashboardComponent implements OnInit {
   map: any;
-  selectedBarrier: any;
+  selectedBarrier: { 
+    name: string; 
+    status: BarrierStatus; 
+    latitude: number; 
+    longitude: number; 
+    lastInspectionDate: Date; 
+    nextInspectionDate: Date; 
+    notes: string;
+  } | null = null;
+  
 
   readonly googleMapsApiUrl = `https://maps.googleapis.com/maps/api/js?key=${environment.googleMapsApiKey}&libraries=marker,controls,geometry,places&callback=initMap`;
   barriers: any[] = [];
@@ -121,23 +131,4 @@ export class DashboardComponent implements OnInit {
     console.log(`Status: ${status}, Icon URL: ${iconUrl}`); // Log to verify
     return iconUrl;
   }
-  
-  
-  
-
-  // setMarkers(): void {
-  //   if (this.map && this.barriers.length > 0) {
-  //     this.barriers.forEach(barrier => {
-  //       const marker = new google.maps.Marker({
-  //         position: { lat: barrier.latitude, lng: barrier.longitude },
-  //         map: this.map,
-  //         title: barrier.name
-  //       });
-
-  //       marker.addListener('click', () => {
-  //         this.selectedBarrier = barrier;
-  //       });
-  //     });
-  //   }
-  // }
 }

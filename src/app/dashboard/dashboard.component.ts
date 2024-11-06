@@ -117,16 +117,16 @@ export class DashboardComponent implements OnInit {
       let iconUrl = '';
       switch (status) {
           case BarrierStatus.Good:
-              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'; // Green icon for "Good"
+              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/green-dot.png'; 
               break;
           case BarrierStatus.NeedsMaintenance:
-              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png'; // Yellow icon for "Needs Maintenance"
+              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/yellow-dot.png'; 
               break;
           case BarrierStatus.Damaged:
-              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/red-dot.png'; // Red icon for "Damaged"
+              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/red-dot.png'; 
               break;
           default:
-              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'; // Default blue icon
+              iconUrl = 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'; 
       }
       console.log(`Status: ${status}, Icon URL: ${iconUrl}`);
       return iconUrl;

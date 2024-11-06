@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
   barriers: any[] = [];
   localApiUrl = 'http://localhost:5000/api/barriers';
   liveApiUrl = 'https://json-barrier-server.onrender.com/api/barriers';
-  useLiveData = false;
+  useLiveData = true;
 
   constructor(private http: HttpClient, private renderer: Renderer2) {}
 

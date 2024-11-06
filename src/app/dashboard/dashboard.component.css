@@ -13,9 +13,9 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 60%;
+  width: 90%; /* Use more width on smaller screens */
   max-width: 500px;
-  padding: 20px;
+  padding: 15px; /* Reduced padding for better fit */
   background-color: #f0f4ff;
   border: 1px solid #007bff;
   border-radius: 8px;
@@ -27,40 +27,63 @@
 }
 
 .notification .message-title {
-  font-size: 1.5em; /* Larger font size */
+  font-size: 1.2em; /* Slightly reduced font size */
   font-weight: bold;
-  margin: 0px 0 15px;
+  margin: 0px 0 10px;
 }
 
 .notification .status-icons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  flex-wrap: wrap; /* Allows icons to wrap on smaller screens */
+  gap: 10px;
   margin-top: 10px;
 }
 
 .notification .status-icon-container {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 5px 10px;
+  gap: 6px;
+  padding: 4px 8px;
   border-radius: 6px;
   font-weight: bold;
   color: white;
+  min-width: 80px; /* Reduced min-width for smaller screens */
 }
 
 .status-good {
-  background-color: #28a745; /* Green for "Good" */
+  background-color: #28a745;
 }
 
 .status-maintenance {
-  background-color: #ffc107; /* Yellow for "Needs Maintenance" */
+  background-color: #ffc107;
 }
 
 .status-damaged {
-  background-color: #dc3545; /* Red for "Damaged" */
+  background-color: #dc3545;
 }
 
 .status-icon {
-  font-size: 1.3em;
+  font-size: 1.1em;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 600px) {
+  .notification {
+    width: 90%;
+    padding: 10px;
+  }
+
+  .notification .message-title {
+    font-size: 1em;
+  }
+
+  .status-icon-container {
+    padding: 3px 6px;
+    font-size: 0.9em;
+  }
+
+  .status-icon {
+    font-size: 1em;
+  }
 }

@@ -1,27 +1,65 @@
-# BarrierMonitoringApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+# Barrier Monitoring App
 
-## Development server
+An interactive web application designed for real-time monitoring of traffic barriers. This project simulates the management and surveillance of traffic barriers on a dynamic map interface, providing a practical tool for enhancing road safety through efficient traffic barrier management.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Project Overview
 
-## Code scaffolding
+This application was developed to demonstrate skills in creating real-time, interactive monitoring solutions. The project aligns with traffic safety initiatives and can serve as a foundation for more complex monitoring systems. Users can view, track, and potentially manage traffic barriers on a live map, reflecting real-world conditions and monitoring needs.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Features
 
-## Build
+- **Interactive Map**: Real-time display of traffic barriers on a map.
+- **Traffic Barrier Management**: Ability to simulate monitoring and management of barrier statuses.
+- **User-Friendly Interface**: Designed with simplicity and efficiency in mind, allowing users to interact with the map effortlessly.
+- **Real-World Simulation**: Provides a practical solution that can be extended for actual traffic monitoring applications.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Technologies Used
 
-## Running unit tests
+- **Frontend**: Angular, CSS, TypeScript, JavaScript
+- **Mapping Library**: (Specify if using a specific map library like Leaflet or Mapbox)
+- **Hosting**: GitHub Pages for easy access and demonstration
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Getting Started
 
-## Running end-to-end tests
+### Prerequisites
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Node.js (for local development)
+- Angular CLI (if you wish to modify or run the app locally)
 
-## Further help
+### Installation
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Clone the Repository**
+   ```bash
+   git clone https://github.com/ghiathalshammaa/BarrierMonitoringApp.git
+   cd BarrierMonitoringApp
+   ```
+
+2. **Install Dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Run the Application Locally**
+   ```bash
+   ng serve
+   ```
+   Navigate to `http://localhost:4200/` to view the app in your browser.
+
+### Deployment
+
+The project is deployed on GitHub Pages. You can access it directly [here](https://ghiathalshammaa.github.io/BarrierMonitoringApp/).
+
+## Usage
+
+- Open the application and explore the map interface.
+- Click on barriers to view their status and monitor changes in real time.
+- This project is a demonstration of traffic barrier monitoring and can be adapted for further development.
+
+## Project Status
+
+This is a prototype designed for demonstration purposes. Future plans may include adding real-time data integration, user authentication, and enhanced map functionalities.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
